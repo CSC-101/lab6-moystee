@@ -64,19 +64,49 @@ class TestCases(unittest.TestCase):
 
 
     # Part 1
-
-
+    def test_selection_sort_books_1(self):
+        input = ["One Fish Two Fish", "Animal Farm", "Lord of the Flies"]
+        expected = ["Animal Farm","Lord of the Flies","One Fish Two Fish"]
+        lab6.selection_sort_books(input)
+        self.assertEqual(expected, input)
+    def test_selection_sort_books_2(self):
+        input = ["Charlotte's Web", "Brave New World", "Do Androids Dream of Electric Sheep?"]
+        expected = ["Brave New World", "Charlotte's Web", "Do Androids Dream of Electric Sheep?"]
+        lab6.selection_sort_books(input)
+        self.assertEqual(expected, input)
     # Part 2
-
-
+    def test_swap_case_1(self):
+        input = 'HallOwEeN TiMe!'
+        expected = 'hALLoWeEn tImE!'
+        result = lab6.swap_case(input)
+        self.assertEqual(expected, result)
+    def test_swap_case_2(self):
+        input = "my name is RisHub"
+        expected = "MY NAME IS rIShUB"
+        result = lab6.swap_case(input)
+        self.assertEqual(expected, result)
     # Part 3
-
-
+    def test_str_translate_1(self):
+        input1, input2, input3 = ("Toy","T","B")
+        expected = "Boy"
+        result = lab6.str_translate(input1, input2, input3)
+        self.assertEqual(expected, result)
+    def test_str_translate_2(self):
+        input1, input2, input3 = ("woman","a","e")
+        expected = "women"
+        result = lab6.str_translate(input1, input2, input3)
+        self.assertEqual(expected, result)
     # Part 4
-
-
-
-
+    def test_histogram_1(self):
+        input = "Mississippi contains the Mississippi river."
+        expected = {'Mississippi': 2, 'contains': 1, 'river.': 1, 'the': 1}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
+    def test_histogram_2(self):
+        input = "I think I am greater than I am now"
+        expected = {'I': 3, 'am': 2, 'greater': 1, 'now': 1, 'than': 1, 'think': 1}
+        result = lab6.histogram(input)
+        self.assertEqual(expected, result)
 
 if __name__ == '__main__':
     unittest.main()

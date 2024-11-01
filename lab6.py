@@ -35,14 +35,60 @@ def selection_sort(values:list[int]) -> None:
         values[mindex] = values[idx]
         values[idx] = tmp
 
-
 # Part 1
-
-
+def compare_title(book1: data.Book, book2: data.Book) -> bool:
+    return book1 < book2
+def selection_sort_books(books: list[data.Book]) -> None:
+    for i in range(len(books)):
+        min_index = i
+        for j in range(i + 1, len(books)):
+            if compare_title(books[j], books[min_index]):
+                min_index = j
+        if min_index != i:
+            temp = books[i]
+            books[i] = books[min_index]
+            books[min_index] = temp
+#Purpose: Alphabetize the inputted list
 # Part 2
-
-
+def swap_case(letters: str) -> str:
+    result = []
+    for letter in letters:
+        if letter.islower():
+            result.append(letter.upper())
+        elif letter.isupper():
+            result.append(letter.lower())
+        else:
+            result.append(letter)
+    return ''.join(result)
+#Purpose: Swaps lowercased letters to uppercase and vis versa
 # Part 3
-
-
+def str_translate(string: str, old: str, new: str) -> str:
+        result = ""
+        for str in string:
+            if str == old:
+                result += new
+            else:
+                result += str
+        return result
+#Purpose: Replace a letter in a string with another letter
 # Part 4
+def histogram(input_str: str) -> dict:
+    word_count = {}
+    word = ""
+    for str in input_str:
+        if str == ' ':
+            if word:
+                if word in word_count:
+                    word_count[word] += 1
+                else:
+                    word_count[word] = 1
+                word = ""
+        else:
+            word += str
+    if word:
+        if word in word_count:
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+        return word_count
+#Purpose: Keep track of the number of times each word appears in the string with a dictionary.
